@@ -4,210 +4,247 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Static HTML hotel website template built by Komplexa Hoteis. No build tools, no frameworks, no package.json — pure HTML5, CSS3, and vanilla JavaScript. Deploy to any static host (GitHub Pages, Netlify, Vercel).
-
-This project is designed to be **replicable**: clone, swap out hotel-specific content (text, images, config constants), and deploy a new hotel site with the same design system.
+Site estático do **Hotel Boutique Bahia Bonita** em Trancoso, Bahia. Construído com HTML5, CSS3 e JavaScript vanilla puro — sem build tools, sem frameworks. Deploy em qualquer host estático (GitHub Pages, Netlify, Vercel). O site foi recriado a partir de um export WordPress/Elementor do site original (bahiabonita.com.br), mantendo o conteúdo e a identidade visual mas com código limpo e manutenível, adicionando o sistema de blog automático da Komplexa Hotéis.
 
 ## Development
 
-No build or install step. Open any `index.html` in a browser or use a local server:
-
 ```bash
-# Python
-python -m http.server 8000
-
-# Node (npx)
-npx serve .
+npx serve . -p 8000
 ```
 
-There are no tests or linting configured.
+Não há testes nem linting configurados.
+
+---
+
+## Hotel Boutique Bahia Bonita — Dados de Referência
+
+| Campo | Valor |
+|---|---|
+| Nome | Hotel Boutique Bahia Bonita |
+| Razão Social | Bahia Bonita Quadrado Hospedagens LTDA |
+| CNPJ | 29.073.818/0001-16 |
+| Endereço | Rua Bom Jesus, 196 — Trancoso, Porto Seguro – BA, 45818-000 |
+| Coordenadas | -16.5897, -39.0947 |
+| Telefone | (73) 3668-1658 |
+| WhatsApp | (73) 98801-7764 / 5573988017764 |
+| Email | contato@bahiabonita.com.br |
+| Instagram | @bahiabonitatrancoso |
+| TripAdvisor | Hotel_Boutique_Bahia_Bonita-Trancoso_Porto_Seguro |
+| Domínio | https://bahiabonita.com.br |
+| Localização | 100m do Quadrado, 400m da praia |
+| Motor de Reservas | OceanBook / Omnibees (Hotel ID: 6588) |
+| Tagline | "Autenticidade que não se compra, se vive." |
+| Tom de voz | Sofisticado e acolhedor, natureza como protagonista, exclusivo sem ser esnobe |
+
+### Suítes do Hotel (7 categorias)
+
+| Suíte | Slug | Capacidade | Área | Destaques |
+|---|---|---|---|---|
+| Suíte Luxo Térreo com Varanda | suite-luxo-terreo-com-varanda | 4 | 65m² | Térreo, varanda, rede, closet, vista jardim |
+| Suíte Luxo Superior com Varanda | suite-luxo-superior | 2 | 65m² | Andar superior, varanda, rede, closet, vista jardim |
+| Suíte Master com Vista Mar | suite-master | 4 | 70m² | Vista mar, varanda ampla, chuveiro duplo |
+| Suíte com Hidromassagem e Vista Mar | suite-diamante-trancoso | 5 | 90m² | Banheira, hidromassagem, vista piscina e mar |
+| Duplex com Hidromassagem Vista Mar | suite-duplex-com-hidromassagem | 4 | 110m² | Duplex, 2 banheiros, hidromassagem, vista piscina e mar |
+| Suíte com Piscina Aquecida Vista Mar | suite-master-com-piscina-privativa | 4 | 135m² | Piscina borda infinita, jacuzzi aquecida, terraço |
+| Bangalô com Piscina Privativa e Jacuzzi | bangalo-master | 3 | 135m² | Piscina privativa, jacuzzi, área de estar independente |
+
+### Casas Exclusivas (5 unidades)
+
+| Casa | Slug | Capacidade | Área | Destaques |
+|---|---|---|---|---|
+| Casa Tupã | casa-tupa | 8 | 200m² | 4 suítes king, piscina privativa, jacuzzi |
+| Casa Yara | casa-yara | 6 | 155m² | 3 suítes king, piscina, mosquiteiros dossel |
+| Casa Mangará | casa-mangara-trancoso | 6 | 140m² | 3 suítes king, piscina-jacuzzi no terraço |
+| Casa Jaci | casa-jaci-trancoso | 4 | 100m² | 2 suítes king, piscina privativa, próximo ao Rio Trancoso |
+| Casa Yakã | casa-yaka | 4 | 140m² | 2 suítes king, jacuzzi no terraço |
+
+**Serviços inclusos nas casas:** Transfer diário ao hotel, abertura de cama, limpeza diária, café da manhã (servido no hotel até 13h ou entregue na casa).
+
+### Experiências / Serviços
+
+1. **Café da Manhã Artesanal** — servido até 13h, no hotel ou entregue na casa
+2. **Chá da Tarde Completo** — servido no hotel
+3. **Passeios para as Praias** — tours guiados (Nativos, Coqueiros, Espelho), concierge
+4. **Reservas em Restaurantes** — curadoria e recomendações do Quadrado e arredores
+5. **Serviços de Transfer** — transfers diários e traslado aeroporto Porto Seguro–Trancoso
+
+---
+
+## Design System & Layout
+
+### Design Tokens (`:root` em `assets/css/style.css`)
+
+| Token | Valor | Uso |
+|---|---|---|
+| `--accent` | `#6CC2C4` | Teal primário — botões, dividers, destaques |
+| `--accent-hover` | `#5AB0B2` | Hover do teal |
+| `--cta` | `#C99F75` | Dourado/marrom — botões CTA, badges |
+| `--cta-hover` | `#A8835E` | Hover do dourado |
+| `--bg` | `#FFF8F2` | Fundo principal (creme claro) |
+| `--surface` | `#FDFAF7` | Cards, formulários |
+| `--surface-light` | `#FFF0E2` | Seções de destaque (dobra casas) |
+| `--text` | `#29393A` | Texto principal / fundo dark sections |
+| `--text-muted` | `#6B7A7B` | Texto secundário |
+| `--font-display` | `Fraunces`, serif | Headings (weight 300) |
+| `--font-body` | `Nunito Sans`, sans-serif | Corpo (weight 200-400) |
+
+### Header / Menu (padrão para todas as páginas)
+
+```
+Logo (assets/img/logo-branco.svg, 60px) | Nav | Botão "Reservar agora" (pill branco)
+```
+
+**Nav items:** Início, Bahia Bonita Casas ▾ (dropdown 5 casas), Hotel Boutique ▾ (dropdown 7 suítes), Experiências, Galeria, Contato
+
+- **Home:** `class="hdr hero-mode"` (transparente sobre hero)
+- **Subpáginas com hero:** `class="hdr hero-mode"` sobre `.page-top-hero` (faixa fina 88px com foto + overlay)
+- **Experiências:** hero full-screen com overlay
+- **Scroll:** header transiciona para fundo `#C99F75` (dourado), logo/texto permanecem brancos, botão "Reservar agora" permanece branco
+
+### Padrão de Início de Página (subpáginas)
+
+1. **Page top hero** (`.page-top-hero`) — faixa fina com imagem + overlay escuro + animação scale
+2. **Intro section** (`.intro-section`) — logo SVG centralizado com linhas teal horizontais dos dois lados (`.intro-logo-row`), opcionalmente com overline + heading
+3. **Blocos de conteúdo** usando `.ab-grid` (foto esquerda + texto direita ou vice-versa)
+
+### Blocos de Conteúdo Alternados (`.ab-grid`)
+
+Grid 2 colunas com `gap:clamp(3rem,6vw,6rem)`, `.ab-img` (max-width 320px, height auto) e `.ab-txt` (max-width 340px). Usado em múltiplas páginas para criar blocos foto+texto com muito respiro.
+
+### Carousels de Acomodação (`.casas-carousel`)
+
+Layout com 2 colunas: card de texto (340px) + thumbnails afuniladas (flex row). Thumbnails inativos são strips verticais estreitos (38px, border-radius pill 60px, overlay escuro 65%). Thumb ativo expande para 520px fixo com border-radius 8px. Autoplay 5 segundos. Card mostra: título, descrição, features (badges teal), botão pill "Conhecer casa/suíte", navegação (setas + contador 01-05 ou 01-07).
+
+### Footer (padrão para todas as páginas)
+
+```
+ft-logo-center: Logo SVG branco centralizado + tagline + social icons (Instagram/WhatsApp)
+───────────────────
+ft-grid (3 colunas): Sobre o Hotel | Contatos | Legal
+ft-bottom: Copyright + crédito Komplexa Hotéis
+```
+
+### CTA Final (todas as páginas exceto contato)
+
+Seção `.final-cta` com imagem de fundo (suite-master/01.jpg) + overlay escuro + logo branca + heading "Trancoso está esperando por você. Reserve sua experiência." + botão pill com borda branca "Reservar agora".
+
+### Seções Especiais da Home
+
+- **Hero:** fullscreen com animação scale 14s, overlay rgba(20,25,15,.75), título "Sua história em Trancoso começa aqui", booking widget OceanBook/Omnibees (pill branco com 4 campos + botão laranja "PESQUISAR")
+- **Intro:** logo + dividers + "Descubra o paraíso" + "Como você prefere viver Trancoso?" + 2 botões (Casas teal / Suítes gold)
+- **Blocos alternados:** imagem+texto com muito respiro
+- **Split-bg:** transição de cor com foto pequena sobreposta
+- **Casas carousel + Suítes carousel**
+- **Dark section** (fundo `--text`): "Experiências que completam o cenário" com 3 cards de experiências
+- **Reviews:** selos TripAdvisor (2020, 2021, 2022, 2024 em `assets/img/icons/`)
+- **Amenidades:** grid 4x3 com ícones SVG line-art inline
+
+---
 
 ## Architecture
 
-### Page structure
-
-Each page lives in its own directory with an `index.html` for clean URLs:
+### Page Structure
 
 ```
-/index.html          — Home (hero + booking widget + discount popup)
-/sobre/              — About the hotel
-/experiencia/        — Facilities (pool, sauna, BBQ area, etc.)
-/acomodacoes/        — Rooms grid with category filters (data-type: casal/familia/grupo)
-/galeria/            — Photo gallery with lightbox and category filters (data-cat)
-/localizacao/        — Google Maps embed + nearby attractions
-/contato/            — Contact form + map
-/blog/               — Blog listing page
-/blog/{slug}/        — Individual blog posts
+/index.html                              — Home
+/hotel-boutique-suites/                   — Listagem suítes (carousel)
+/suite-master/                            — Suíte Master (70m²)
+/suite-master-com-piscina-privativa/      — Suíte Master c/ Piscina (135m²)
+/suite-luxo-superior/                     — Suíte Luxo Superior (65m²)
+/suite-luxo-terreo-com-varanda/           — Suíte Luxo Térreo (65m²)
+/suite-diamante-trancoso/                 — Suíte Diamante (90m²)
+/suite-duplex-com-hidromassagem/          — Duplex c/ Hidromassagem (110m²)
+/bangalo-master/                          — Bangalô Master (135m²)
+/bahia-bonita-casas/                      — Listagem casas (carousel)
+/casa-tupa/                               — Casa Tupã (200m²)
+/casa-yara/                               — Casa Yara (155m²)
+/casa-mangara-trancoso/                   — Casa Mangará (140m²)
+/casa-jaci-trancoso/                      — Casa Jaci (100m²)
+/casa-yaka/                               — Casa Yakã (140m²)
+/experiencias/                            — Experiências (hero full + blocos alternados)
+/galeria/                                 — Galeria (lightbox + filtros)
+/contato/                                 — Contato (formulário + mapa + dados)
+/blog/                                    — Listagem de posts
+/blog/{slug}/                             — Posts individuais
+/termos-e-condicoes/                      — Termos e Condições
+/cookie-policy-br/                        — Política de Cookies
 ```
 
-### Single CSS file: `assets/css/style.css`
+### Single CSS: `assets/css/style.css`
 
-All styling in one file. Uses CSS custom properties (design tokens) for theming — colors, spacing, fonts. Responsive via three breakpoints: 768px, 640px, 480px. Fluid spacing uses `clamp()`. Blog styles are at the end of the file.
+Todas as estilizações em um arquivo. Design tokens via CSS custom properties. Breakpoints: 1024px, 768px, 480px. Espaçamento fluido com `clamp()`. Classes `.compact` reduzem padding em 25%. `@media(prefers-reduced-motion:reduce)` desabilita animações.
 
-### Single JS file: `assets/js/main.js`
+### Single JS: `assets/js/main.js`
 
-All interactivity in one file. Key systems:
-- **Webhook dispatcher** (`sendToWebhook`) — all forms POST JSON to a configurable webhook URL
-- **GTM dataLayer** (`pushLead`) — fires `gerar_lead` events with lead type
-- **UI components** — mobile menu, sticky header, lightbox gallery, modals (WhatsApp, discount popup), cookie banner, room/gallery filters, lazy image loading
+Constantes: `WEBHOOK_URL`, `HOTEL_NAME`, `WA_NUMBER`. Sistemas: GTM dataLayer (`pushLead`), webhook (`sendToWebhook`), header scroll (hero-mode → solid #C99F75), mobile menu com dropdowns (`.mob-dropdown-toggle`), lazy load (IntersectionObserver), cookie banner, filtros de galeria (`filterGal`), lightbox (`openLB/closeLB/navLB`), formulário de contato.
 
-### Hotel-specific constants (top of `main.js`)
+### External Integrations
 
-```js
-const WEBHOOK_URL = '...';  // Form submission endpoint
-const WA_NUMBER   = '...';  // WhatsApp number (country code, no punctuation)
-const HOTEL_NAME  = '...';  // Used in webhook payloads
-```
+- **OceanBook/Omnibees** (Hotel ID 6588) — booking widget com Flatpickr, carregado dinamicamente via `<template>` + JS na home
+- **Google Maps** — iframe embed na página de contato (busca: "Hotel Boutique Bahia Bonita Trancoso")
+- **WhatsApp** — botão flutuante + links wa.me/5573988017764 com mensagem "Tenho interesse"
+- **TripAdvisor** — selos 2020-2024 em assets/img/icons/
 
-### External integrations
+---
 
-- **HQ Beds** — booking engine iframe widget embedded in home page hero and acomodacoes
-- **Google Tag Manager** — container ID hardcoded in every HTML file's `<head>` and `<body>` (noscript)
-- **Google Maps** — iframe embeds in contato and localizacao pages
-- **Webhook (CI Digital Marketing)** — receives all form submissions (WhatsApp modal, discount popup, contact form)
-- **WhatsApp** — wa.me links with pre-filled messages
-
-### SEO & structured data
-
-Every page includes: Schema.org JSON-LD (LodgingBusiness, WebPage, BreadcrumbList), Open Graph tags, Twitter cards, canonical URLs. Site-level `sitemap.xml` and `robots.txt` at root.
-
-## Configuration files
-
-### `hotel-config.json`
-
-Central config with all hotel-specific data: name, contact, address, amenities, rooms, integrations (webhook, GTM, HQ Beds), design tokens, and blog settings. Used by the remote agent to personalize content generation.
-
-### `blog-plan.json`
-
-Editorial strategy and content calendar. Contains:
-- **editorial_strategy**: tone, word count, content pillars, posting schedule
-- **seo_rules**: title format, slug rules, required meta tags, schema type
-- **post_template**: required sections, CTA text
-- **published**: array of published posts (slug, date, keywords)
-- **upcoming**: array of planned posts with topic, target keywords, date, slug
-
-## Blog system
+## Blog System
 
 ### Structure
 
 ```
 /blog/
-  index.html                    — Listing page with grid of post cards
+  index.html                    — Listagem (grid vazio, pronto para posts)
   _template/
-    index.html                  — Template for new posts (has %%PLACEHOLDER%% markers)
+    index.html                  — Template com marcadores %%PLACEHOLDER%%
   {slug}/
-    index.html                  — Individual post (generated from template)
+    index.html                  — Post individual
 ```
 
-### Creating a new blog post (agent instructions)
+### Creating a New Blog Post
 
-1. Read `blog-plan.json` → pick next item from `upcoming`
-2. Read `hotel-config.json` → use hotel context, tone, keywords for content
-3. Copy `blog/_template/index.html` → `blog/{slug}/index.html`
-4. Replace all `%%PLACEHOLDER%%` markers:
-   - `%%POST_TITLE%%` → post title
-   - `%%META_DESCRIPTION%%` → max 155 chars, includes target keyword
-   - `%%SLUG%%` → URL slug from blog-plan
-   - `%%ISO_DATE%%` → `YYYY-MM-DD` format
-   - `%%DISPLAY_DATE%%` → `DD Mmm YYYY` in Portuguese (e.g., `11 Abr 2026`)
-   - `%%PILLAR%%` → content pillar from blog-plan
-   - `%%CONTENT_START%%` / `%%CONTENT_END%%` → replace entire block with post HTML
-   - `%%RELATED_POSTS%%` → 2-3 blog cards linking to other published posts
-5. Write the post content between `%%CONTENT_START%%` and `%%CONTENT_END%%`:
-   - Intro: 2-3 paragraphs with primary keyword naturally included
-   - Body: 3-5 sections with `<h2>` headings, useful and original content
-   - Internal links: 2+ links to hotel pages (`../../acomodacoes/`, `../../contato/`, etc.)
-   - CTA box at end using `.blog-cta-box` class
-   - Word count: 800-1200 words
-   - Tone: match `hotel-config.json > hotel.tone`
-6. Add a blog card to `blog/index.html` inside `#blogGrid` (remove `#blogEmpty` when first post is added)
-7. Add `<url>` entry to `sitemap.xml` with the new post URL
-8. Move the post from `upcoming` to `published` in `blog-plan.json`
-9. `git add` the new post, updated blog/index.html, sitemap.xml, and blog-plan.json → `git commit` → `git push`
+1. Ler `blog-plan.json` → próximo item de `upcoming` com `target_date` ≤ hoje
+2. Ler `hotel-config.json` → contexto, tom, keywords
+3. Copiar `blog/_template/index.html` → `blog/{slug}/index.html`
+4. Substituir: `%%POST_TITLE%%`, `%%META_DESCRIPTION%%`, `%%SLUG%%`, `%%ISO_DATE%%`, `%%DISPLAY_DATE%%`, `%%PILLAR%%`, `%%CONTENT_START%%`/`%%CONTENT_END%%`, `%%RELATED_POSTS%%`
+5. Conteúdo: 800-1200 palavras, intro + 3-5 seções H2 + 2+ links internos + CTA box
+6. Atualizar `blog/index.html` (adicionar card ao grid)
+7. Atualizar `sitemap.xml`
+8. Mover post de `upcoming` para `published` no `blog-plan.json`
+9. `git add` → `git commit` → `git push`
 
-### Blog post SEO checklist
+### Blog SEO Checklist
 
-Every post MUST have:
-- [ ] Unique `<title>` with primary keyword (format: `{Title} | Blog Pousada MontVerde`)
-- [ ] `<meta name="description">` ≤ 155 chars with primary keyword
-- [ ] `<link rel="canonical">` pointing to the post URL
-- [ ] Open Graph tags: `og:title`, `og:description`, `og:url`, `og:type=article`, `og:image`
-- [ ] `<meta property="article:published_time">` with ISO date
-- [ ] Schema.org `BlogPosting` JSON-LD with headline, datePublished, author, publisher
-- [ ] `BreadcrumbList` JSON-LD: Home → Blog → Post Title
-- [ ] Single `<h1>` (the post title)
-- [ ] `<h2>` for each section, `<h3>` for subsections
-- [ ] At least 2 internal links to hotel pages
-- [ ] CTA box linking to reservas or contato
-- [ ] GTM container loaded (already in template)
+- `<title>` formato: `{Título} | Blog Hotel Boutique Bahia Bonita`
+- `<meta name="description">` ≤ 155 chars
+- Canonical, OG tags, `article:published_time`
+- Schema.org `BlogPosting` + `BreadcrumbList` (Início → Blog → Post)
+- Único `<h1>`, H2 por seção, 2+ links internos, CTA box
 
-## Replicating for a new hotel
+### Remote Agent (Schedule)
 
-### Quick method (with `hotel-config.json`)
+- **Frequência:** terça e sexta
+- **Prompt:** "Read blog-plan.json. If there is an upcoming post with target_date ≤ today, generate it following the blog post creation instructions in CLAUDE.md."
+- Quando `upcoming` ≤ 2 itens, gerar 6 novos tópicos baseados em pilares: Destino, Experiência, Cultura, Dicas práticas
 
-1. Clone this repository
-2. Fill `hotel-config.json` with the new hotel's data (context, contact, integrations, design tokens, blog topics)
-3. Run Claude Code and prompt: "Replique este site usando hotel-config.json. Gere todos os textos personalizados com base no contexto, público-alvo e tom de voz definidos."
-4. Claude reads the config and generates personalized content for ALL pages — hero, sobre, experiência, acomodações, contato, SEO meta tags, Schema.org, footer
-5. Replace images in `assets/img/`
-6. Deploy
+---
 
-### Manual checklist
+## Configuration Files
 
-1. **Images**: Replace all files in `assets/img/` (hero, quartos, galeria, sobre). See README.md for dimensions.
-2. **`main.js` constants**: Update `WEBHOOK_URL`, `WA_NUMBER`, `HOTEL_NAME`.
-3. **HTML content**: In every `index.html`, replace hotel name, address, phone, email, CNPJ, Instagram, coordinates, descriptions, and room listings.
-4. **GTM container ID**: Replace `GTM-MXDKKWH3` across all HTML files.
-5. **HQ Beds widget**: Update the iframe `src` URL for the new hotel's booking engine.
-6. **Google Maps iframes**: Generate new embed codes for the hotel's location.
-7. **SEO meta tags**: Update `og:url`, `og:title`, canonical URLs, Schema.org JSON-LD on every page.
-8. **`sitemap.xml`**: Update all URLs to the new domain.
-9. **`blog-plan.json`**: Update topics, keywords, and content pillars for the new hotel's region.
-10. **Design tokens** (optional): Adjust CSS custom properties in `style.css` (`:root` block) to match new hotel branding.
+### `hotel-config.json`
 
-## Remote agent: automated blog generation
+Config central com dados do hotel, contato, endereço, coordenadas, suítes (7), casas (5), experiências (5), integrações (webhook, GTM, OceanBook), design tokens e configurações do blog.
 
-This project supports a scheduled remote agent that generates blog posts automatically.
+### `blog-plan.json`
 
-### What the agent does (on each run)
-
-1. Reads `blog-plan.json` → finds the next `upcoming` post whose `target_date` ≤ today
-2. Reads `hotel-config.json` → uses hotel context for personalized, region-relevant content
-3. Generates the post following the "Creating a new blog post" instructions above
-4. Updates `blog/index.html` listing, `sitemap.xml`, and `blog-plan.json`
-5. Commits and pushes to GitHub → GitHub Pages auto-deploys → Cloudflare serves
-
-### Schedule configuration
-
-Set up via Claude Code `/schedule` command:
-- **Frequency**: twice per week (Tuesday and Friday)
-- **Prompt**: "Read blog-plan.json. If there is an upcoming post with target_date ≤ today, generate it following the blog post creation instructions in CLAUDE.md. If no posts are due, do nothing."
-
-### Replenishing the editorial calendar
-
-When `upcoming` in `blog-plan.json` has ≤ 2 items, the agent should generate 6 more topics based on:
-- `hotel-config.json > blog.topics_focus` — topical pillars
-- `hotel-config.json > blog.seo_region_keywords` — regional SEO terms
-- `editorial_strategy.content_pillars` — content categories
-- Avoid duplicating topics already in `published`
-- Generate slugs following `seo_rules.url_slug_format`
-
-## Design tokens reference
-
-| Token | Default | Purpose |
-|---|---|---|
-| `--accent` | `#3c614f` | Primary green — headers, buttons |
-| `--cta` | `#92783b` | Gold — reserve/CTA buttons |
-| `--bg` | `#f8f5f0` | Page background (cream) |
-| `--font-display` | Pinyon Script | Decorative headings |
-| `--font-body` | Raleway | Body text |
+Estratégia editorial: tom sofisticado e acolhedor, 4 pilares (Destino, Experiência, Cultura, Dicas práticas), regras SEO, template de post, posts publicados e planejados.
 
 ## Conventions
 
-- All HTML uses semantic elements with BEM-like short class names (e.g., `.rc` for room card, `.gi` for gallery item, `.fbtn` for filter button).
-- Data attributes drive JS behavior: `data-type` on room cards, `data-cat` on gallery items.
-- Modals use `.open` class toggle pattern with `document.body.style.overflow = 'hidden'`.
-- Forms prevent default, send webhook, then perform the UI action (open WhatsApp, show success message, close modal).
-- Blog post content uses standard HTML (`<h2>`, `<p>`, `<ul>`, `<blockquote>`, `<a>`) — no custom components needed inside `.blog-post-content`.
-- Blog CTA boxes use `.blog-cta-box` class with `<h3>`, `<p>`, and `.btn-green` link.
-- Language is Brazilian Portuguese throughout.
+- HTML semântico com class names curtos (`.cb` content block, `.ab-grid` about grid, `.cc-card` carousel card, `.rc` room card, `.gi` gallery item)
+- Data attributes controlam JS: `data-cat` nos gallery items
+- Modais: toggle de `.open` com `body.style.overflow='hidden'`
+- Formulários: prevent default → webhook → ação UI
+- Idioma: Português Brasileiro
+- Cor do fundo padrão: `#FFF8F2`, seção casas: `#FFF0E2`, seção suítes: `#fff`
+- Botões pill arredondados com `border-radius:50px`
+- Headings em Fraunces weight 300 (serif elegante)

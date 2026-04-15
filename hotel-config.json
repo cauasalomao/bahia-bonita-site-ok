@@ -1,125 +1,233 @@
 {
   "hotel": {
-    "name": "Pousada MontVerde",
-    "tagline": "Seu refúgio perfeito no Itanhangá",
-    "description_short": "Pousada no coração do Itanhangá, Rio de Janeiro. Refúgio verde a minutos da Barra, Parque Olímpico e Floresta da Tijuca.",
-    "description_long": "A Pousada MontVerde nasceu com uma proposta única: oferecer qualidade de vida e descanso genuíno sem exigir que você abra mão das conveniências da cidade. Somos um refúgio verde, tranquilo e seguro, encravado no Itanhangá — bairro nobre do Rio de Janeiro. A poucos minutos da Praia da Barra, do Parque Olímpico, do RioCentro e da Floresta da Tijuca.",
-    "style": "Refúgio urbano, natureza com conveniência, verde e tranquilo",
-    "target_audience": "Famílias, casais e viajantes corporativos que buscam tranquilidade com acesso fácil à cidade",
-    "tone": "Acolhedor, confiável, natureza como protagonista, sem ser formal"
+    "name": "Hotel Boutique Bahia Bonita",
+    "legal_name": "Bahia Bonita Quadrado Hospedagens LTDA",
+    "tagline": "Autenticidade que não se compra, se vive.",
+    "description_short": "Localizado perto do Quadrado, o Bahia Bonita oferece suítes com piscina privativa, vista para o mar e café da manhã servido até às 13h. Reserve sua experiência exclusiva em Trancoso.",
+    "description_long": "O Hotel Boutique Bahia Bonita é um refúgio de sofisticação e natureza em Trancoso, Bahia. A apenas 100 metros do Quadrado e 400 metros da praia, oferecemos suítes exclusivas com vista para o mar, piscinas privativas e o cuidado de um hotel boutique. Aqui o dia não tem roteiro — tem ritmo. E o ritmo é seu. Arquitetura que dialoga com o tempo e a natureza, rodeada pela Mata Atlântica.",
+    "style": "Hotel boutique de luxo, sofisticado, natureza tropical, exclusividade",
+    "target_audience": "Casais, famílias e viajantes que buscam experiência boutique exclusiva com conexão com a natureza e autenticidade de Trancoso",
+    "tone": "Sofisticado e acolhedor, natureza como protagonista, exclusivo sem ser esnobe, inspiracional"
   },
 
   "contact": {
-    "phone": "(21) 99691-5036",
-    "phone_international": "+55-21-99691-5036",
-    "email": "contato@pousadamontverde.com",
-    "wa_number": "5521996915036",
-    "instagram": "pousada_montverde",
-    "instagram_url": "https://instagram.com/pousada_montverde"
+    "phone": "(73) 3668-1658",
+    "phone_international": "+55-73-3668-1658",
+    "whatsapp": "(73) 98801-7764",
+    "wa_number": "5573988017764",
+    "wa_message": "Tenho interesse",
+    "email": "contato@bahiabonita.com.br",
+    "instagram": "bahiabonitatrancoso",
+    "instagram_url": "https://instagram.com/bahiabonitatrancoso",
+    "tripadvisor": "Hotel_Boutique_Bahia_Bonita-Trancoso_Porto_Seguro"
   },
 
   "address": {
-    "street": "R. Itália Fausta, 105",
-    "neighborhood": "Itanhangá",
-    "city": "Rio de Janeiro",
-    "state": "RJ",
-    "zip": "22641-440",
+    "street": "Rua Bom Jesus, 196",
+    "neighborhood": "Trancoso",
+    "city": "Porto Seguro",
+    "state": "BA",
+    "zip": "45818-000",
     "country": "BR",
     "coordinates": {
-      "lat": -22.986,
-      "lng": -43.352
-    }
+      "lat": -16.5897,
+      "lng": -39.0947
+    },
+    "location_notes": "100 metros do Quadrado, 400 metros da praia"
   },
 
   "business": {
-    "cnpj": "63.165.135/0001-27",
-    "number_of_rooms": 16,
-    "checkin_time": "14:00",
-    "checkout_time": "12:00",
-    "price_range": "$$"
+    "cnpj": "29.073.818/0001-16",
+    "price_range": "$$$"
   },
 
-  "amenities": [
-    "Piscina",
-    "Sauna",
-    "Churrasqueira",
-    "Ar-condicionado",
-    "Wi-Fi"
-  ],
-
-  "differentials": [
-    "Refúgio verde no coração do Rio de Janeiro",
-    "Minutos da Barra da Tijuca, Parque Olímpico e Floresta da Tijuca",
-    "Ambiente controlado, íntimo e seguro",
-    "Base estratégica para eventos no RioCentro"
-  ],
-
-  "nearby_attractions": [
-    "Praia da Barra da Tijuca",
-    "Parque Olímpico",
-    "Floresta da Tijuca",
-    "Pedra da Gávea",
-    "Itanhangá Golf Club",
-    "RioCentro"
-  ],
-
-  "rooms": [
+  "suites": [
     {
-      "category": "casal",
-      "name": "Duplo & Queen",
-      "label": "Para casais",
-      "capacity": 2,
-      "image": "assets/img/quartos/casal.jpg"
-    },
-    {
-      "category": "familia",
-      "name": "Triplo & Quádruplo",
-      "label": "Para famílias",
+      "slug": "suite-master",
+      "name": "Suíte Master",
       "capacity": 4,
-      "image": "assets/img/quartos/triplo-beliche.jpg"
+      "size_m2": "68-70",
+      "highlights": ["Vista mar", "Varanda ampla", "Mata Atlântica"],
+      "image": "assets/img/suites/suite-master.jpg"
     },
     {
-      "category": "grupo",
-      "name": "Sêxtuplo & Óctuplo",
-      "label": "Para grupos",
-      "capacity": 8,
-      "image": "assets/img/quartos/sextuplo.jpg"
+      "slug": "suite-master-com-piscina-privativa",
+      "name": "Suíte Master com Piscina Privativa",
+      "capacity": 4,
+      "size_m2": "135",
+      "highlights": ["Piscina borda infinita", "Vista mar", "Piscina privativa"],
+      "image": "assets/img/suites/suite-master-piscina.jpg"
+    },
+    {
+      "slug": "suite-luxo-superior",
+      "name": "Suíte Luxo Superior",
+      "capacity": 2,
+      "size_m2": "65",
+      "highlights": ["Vista jardim", "Ideal casais"],
+      "image": "assets/img/suites/suite-luxo-superior.jpg"
+    },
+    {
+      "slug": "suite-luxo-terreo-com-varanda",
+      "name": "Suíte Luxo Térreo com Varanda",
+      "capacity": 4,
+      "size_m2": "65",
+      "highlights": ["Térreo", "Varanda", "Rede"],
+      "image": "assets/img/suites/suite-luxo-terreo.jpg"
+    },
+    {
+      "slug": "suite-diamante-trancoso",
+      "name": "Suíte Diamante",
+      "capacity": 5,
+      "size_m2": "90",
+      "highlights": ["Banheira hidromassagem", "Vista mar"],
+      "image": "assets/img/suites/suite-diamante.jpg"
+    },
+    {
+      "slug": "suite-duplex-com-hidromassagem",
+      "name": "Suíte Diamante Duplex com Hidromassagem",
+      "capacity": 4,
+      "size_m2": "110",
+      "highlights": ["Duplex", "Hidromassagem", "Vista mar"],
+      "image": "assets/img/suites/suite-duplex-hidro.jpg"
+    },
+    {
+      "slug": "bangalo-master",
+      "name": "Bangalô Master com Piscina Privativa",
+      "capacity": 3,
+      "size_m2": "135",
+      "highlights": ["Piscina privativa", "Jacuzzi"],
+      "image": "assets/img/suites/bangalo-master.jpg"
     }
   ],
 
+  "casas": [
+    {
+      "slug": "casa-tupa",
+      "name": "Casa Tupã",
+      "size_m2": "140",
+      "highlights": ["2 suítes king", "Piscina-jacuzzi no terraço", "Passos da Praia dos Nativos"],
+      "image": "assets/img/casas/casa-tupa.jpg"
+    },
+    {
+      "slug": "casa-yara",
+      "name": "Casa Yara",
+      "highlights": ["Privacidade de casa com serviço de hotel boutique"],
+      "image": "assets/img/casas/casa-yara.jpg"
+    },
+    {
+      "slug": "casa-mangara-trancoso",
+      "name": "Casa Mangará",
+      "highlights": ["Acomodação privada exclusiva"],
+      "image": "assets/img/casas/casa-mangara.jpg"
+    },
+    {
+      "slug": "casa-jaci-trancoso",
+      "name": "Casa Jaci",
+      "highlights": ["Acomodação privada exclusiva"],
+      "image": "assets/img/casas/casa-jaci.jpg"
+    },
+    {
+      "slug": "casa-yaka",
+      "name": "Casa Yakã",
+      "highlights": ["Acomodação privada exclusiva"],
+      "image": "assets/img/casas/casa-yaka.jpg"
+    }
+  ],
+
+  "casas_services": [
+    "Transfer diário ao hotel boutique",
+    "Abertura de cama",
+    "Limpeza diária",
+    "Café da manhã (servido no hotel até 13h ou entregue na casa)"
+  ],
+
+  "experiences": [
+    {
+      "name": "Café da Manhã Artesanal",
+      "description": "Servido até 13h, no hotel ou entregue na casa"
+    },
+    {
+      "name": "Chá da Tarde Completo",
+      "description": "Servido no hotel com seleção artesanal"
+    },
+    {
+      "name": "Passeios para as Praias",
+      "description": "Tours guiados com serviço de concierge"
+    },
+    {
+      "name": "Reservas em Restaurantes",
+      "description": "Assistência e recomendações personalizadas"
+    },
+    {
+      "name": "Serviços de Transfer",
+      "description": "Transfers diários e traslado aeroporto"
+    }
+  ],
+
+  "nearby_attractions": [
+    "Quadrado de Trancoso",
+    "Praia dos Nativos",
+    "Praia dos Coqueiros",
+    "Praia do Espelho",
+    "Rio da Barra",
+    "Reserva da Jaqueira",
+    "Centro Histórico de Porto Seguro"
+  ],
+
   "integrations": {
-    "webhook_url": "https://webhook.cidigitalmarketing.com/webhook/7c87bd71-6c33-437f-9073-2fae80d76d2f",
-    "gtm_id": "GTM-MXDKKWH3",
-    "hqbeds_url": "https://booking.hqbeds.com.br/montverde/rooms",
+    "webhook_url": "",
+    "gtm_id": "",
+    "booking_system": "OceanBook",
+    "booking_widget_url": "",
     "maps_embed_url": "",
-    "domain": "https://pousadamontverde.com.br"
+    "domain": "https://bahiabonita.com.br"
   },
 
   "design": {
-    "accent_color": "#3c614f",
-    "cta_color": "#92783b",
-    "bg_color": "#f8f5f0",
-    "font_display": "Pinyon Script",
-    "font_body": "Raleway"
+    "accent_color": "#6CC2C4",
+    "accent_hover": "#5AB0B2",
+    "cta_color": "#C99F75",
+    "cta_hover": "#A8835E",
+    "bg_color": "#FFF8F2",
+    "surface_color": "#FDFAF7",
+    "text_color": "#29393A",
+    "text_muted": "#6B7A7B",
+    "font_display": "The Seasons",
+    "font_body": "Nunito Sans"
+  },
+
+  "seo": {
+    "title_home": "Hotel Boutique Bahia Bonita | Trancoso, Bahia",
+    "meta_description_home": "Localizado perto do Quadrado, o Bahia Bonita oferece suítes com piscina privativa, vista para o mar e café da manhã servido até às 13h. Reserve sua experiência exclusiva em Trancoso.",
+    "keywords": [
+      "Hotel Boutique em Trancoso",
+      "Pousada de luxo Trancoso",
+      "Hospedagem no Quadrado",
+      "Hotel com vista para o mar Trancoso",
+      "Suítes com piscina privativa Trancoso",
+      "Bangalô Trancoso",
+      "Casas exclusivas Trancoso"
+    ]
   },
 
   "blog": {
     "enabled": true,
     "topics_focus": [
-      "turismo no Rio de Janeiro",
-      "natureza e trilhas na Tijuca",
-      "eventos no RioCentro e Parque Olímpico",
-      "praias da zona oeste do Rio",
-      "gastronomia carioca",
-      "dicas de viagem para o Rio",
-      "roteiros românticos no Rio",
-      "ecoturismo urbano"
+      "turismo em Trancoso e sul da Bahia",
+      "praias de Trancoso e região",
+      "gastronomia e restaurantes em Trancoso",
+      "o Quadrado de Trancoso história e cultura",
+      "roteiros românticos no sul da Bahia",
+      "ecoturismo e natureza na Mata Atlântica",
+      "alta temporada e eventos em Trancoso",
+      "experiências exclusivas em hotel boutique"
     ],
     "seo_region_keywords": [
-      "Itanhangá", "Barra da Tijuca", "Rio de Janeiro",
-      "Floresta da Tijuca", "Pedra da Gávea", "zona oeste RJ"
+      "Trancoso", "Quadrado de Trancoso", "Porto Seguro",
+      "Praia dos Nativos", "Praia do Espelho", "sul da Bahia",
+      "Costa do Descobrimento"
     ],
-    "internal_link_targets": ["acomodacoes", "experiencia", "contato", "galeria"],
-    "cta_default": "Reserve sua estadia na Pousada MontVerde"
+    "internal_link_targets": ["hotel-boutique-suites", "bahia-bonita-casas", "experiencias", "galeria", "contato"],
+    "cta_default": "Reserve sua experiência exclusiva no Hotel Boutique Bahia Bonita"
   }
 }

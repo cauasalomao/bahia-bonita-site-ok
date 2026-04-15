@@ -1,7 +1,7 @@
 {
   "editorial_strategy": {
-    "goal": "Atrair tráfego orgânico qualificado para a região do hotel via conteúdo informativo e inspiracional, gerando reservas",
-    "tone": "Informativo e acolhedor, com CTAs sutis para reserva. Escrita em português brasileiro, sem ser excessivamente formal.",
+    "goal": "Atrair tráfego orgânico qualificado para Trancoso e sul da Bahia via conteúdo inspiracional e informativo, gerando reservas no Hotel Boutique Bahia Bonita",
+    "tone": "Sofisticado e acolhedor, inspiracional com CTAs sutis para reserva. Escrita em português brasileiro, elegante sem ser formal demais.",
     "word_count": "800-1200",
     "target_keywords_per_post": 3,
     "internal_links_per_post": 2,
@@ -10,34 +10,34 @@
     "content_pillars": [
       {
         "pillar": "Destino",
-        "description": "O que fazer, onde ir, roteiros pela região do hotel",
-        "example_topics": ["Melhores praias da Barra da Tijuca", "Trilhas na Floresta da Tijuca", "O que fazer no Rio em 3 dias"]
+        "description": "O que fazer, onde ir, roteiros por Trancoso e sul da Bahia",
+        "example_topics": ["Melhores praias de Trancoso", "O que fazer no Quadrado", "Roteiro de 3 dias em Trancoso"]
       },
       {
         "pillar": "Experiência",
-        "description": "Vivências no hotel e arredores, gastronomia, relaxamento",
-        "example_topics": ["Roteiro romântico no Itanhangá", "Gastronomia carioca perto da Barra", "Desconectar sem sair do Rio"]
+        "description": "Vivências no hotel e arredores, gastronomia, relaxamento, casais",
+        "example_topics": ["Roteiro romântico em Trancoso", "Melhores restaurantes do Quadrado", "Café da manhã até 13h: a arte de desacelerar"]
       },
       {
-        "pillar": "Eventos",
-        "description": "Eventos no RioCentro, Parque Olímpico, shows e temporadas",
-        "example_topics": ["Onde ficar durante eventos no RioCentro", "Agenda cultural do Rio 2026", "Rock in Rio: hospedagem perto"]
+        "pillar": "Cultura",
+        "description": "História, cultura local, artesanato, comunidades, festividades",
+        "example_topics": ["A história do Quadrado de Trancoso", "Artesanato e cultura pataxó", "São João no sul da Bahia"]
       },
       {
         "pillar": "Dicas práticas",
-        "description": "Informações úteis para quem visita a região",
-        "example_topics": ["Como chegar ao Itanhangá", "Melhores épocas para visitar o Rio", "Transporte na zona oeste do Rio"]
+        "description": "Informações úteis para quem visita Trancoso",
+        "example_topics": ["Como chegar a Trancoso", "Melhor época para visitar", "Trancoso com crianças: guia completo"]
       }
     ]
   },
 
   "seo_rules": {
-    "title_format": "{Título do Post} | Blog Pousada MontVerde",
+    "title_format": "{Título do Post} | Blog Hotel Boutique Bahia Bonita",
     "meta_description_max_chars": 155,
     "url_slug_format": "lowercase, hifenizado, sem acentos, max 5 palavras",
     "heading_structure": "H1 único (título), H2 para seções, H3 para subseções",
     "schema_type": "BlogPosting",
-    "canonical_base": "https://pousadamontverde.com.br/blog/",
+    "canonical_base": "https://bahiabonita.com.br/blog/",
     "open_graph_type": "article",
     "required_meta": [
       "title", "meta description", "canonical", "og:title", "og:description",
@@ -53,53 +53,53 @@
       "CTA final (link para reserva ou contato)",
       "Links internos naturais no texto"
     ],
-    "footer_cta": "Hospede-se na Pousada MontVerde — seu refúgio no Itanhangá, a minutos de tudo no Rio."
+    "footer_cta": "Reserve sua experiência exclusiva no Hotel Boutique Bahia Bonita — a 100 metros do Quadrado e passos da praia em Trancoso."
   },
 
-  "published": [
-    {
-      "slug": "trilhas-floresta-tijuca-iniciantes",
-      "date": "2026-04-09",
-      "title": "Melhores Trilhas na Floresta da Tijuca para Iniciantes",
-      "keywords": ["trilhas tijuca", "floresta da tijuca trilhas", "ecoturismo rio de janeiro"]
-    }
-  ],
+  "published": [],
 
   "upcoming": [
     {
-      "topic": "O que fazer na Barra da Tijuca além da praia",
+      "topic": "As melhores praias de Trancoso: guia completo para cada estilo de viajante",
       "pillar": "Destino",
-      "target_keywords": ["barra da tijuca o que fazer", "pontos turísticos barra", "passeios barra da tijuca"],
+      "target_keywords": ["praias de trancoso", "melhores praias trancoso", "praia dos nativos trancoso"],
       "target_date": "2026-04-15",
-      "slug": "o-que-fazer-barra-da-tijuca"
+      "slug": "melhores-praias-trancoso"
     },
     {
-      "topic": "Roteiro romântico de fim de semana no Rio de Janeiro",
-      "pillar": "Experiência",
-      "target_keywords": ["roteiro romântico rio", "fim de semana romântico rj", "pousada romântica rio"],
+      "topic": "O Quadrado de Trancoso: história, charme e o que fazer no coração do vilarejo",
+      "pillar": "Cultura",
+      "target_keywords": ["quadrado de trancoso", "o que fazer quadrado trancoso", "história trancoso"],
       "target_date": "2026-04-18",
-      "slug": "roteiro-romantico-rio-de-janeiro"
+      "slug": "quadrado-trancoso-historia"
     },
     {
-      "topic": "Guia completo: onde ficar durante eventos no RioCentro",
-      "pillar": "Eventos",
-      "target_keywords": ["hotel perto riocentro", "hospedagem riocentro", "onde ficar riocentro"],
-      "target_date": "2026-04-22",
-      "slug": "onde-ficar-eventos-riocentro"
-    },
-    {
-      "topic": "Pedra da Gávea: como visitar e o que esperar",
-      "pillar": "Destino",
-      "target_keywords": ["pedra da gávea trilha", "como subir pedra da gávea", "pedra da gávea rio"],
-      "target_date": "2026-04-25",
-      "slug": "pedra-da-gavea-como-visitar"
-    },
-    {
-      "topic": "Desconectar sem sair da cidade: o conceito de refúgio urbano",
+      "topic": "Roteiro romântico em Trancoso: onde ficar, comer e passear a dois",
       "pillar": "Experiência",
-      "target_keywords": ["refúgio urbano rio", "desconectar no rio de janeiro", "pousada natureza rio"],
+      "target_keywords": ["roteiro romântico trancoso", "trancoso para casais", "lua de mel trancoso"],
+      "target_date": "2026-04-22",
+      "slug": "roteiro-romantico-trancoso"
+    },
+    {
+      "topic": "Praia do Espelho: como chegar, o que esperar e dicas de quem conhece",
+      "pillar": "Destino",
+      "target_keywords": ["praia do espelho", "como chegar praia do espelho", "praia do espelho trancoso"],
+      "target_date": "2026-04-25",
+      "slug": "praia-do-espelho-guia"
+    },
+    {
+      "topic": "Gastronomia em Trancoso: os melhores restaurantes do Quadrado e arredores",
+      "pillar": "Experiência",
+      "target_keywords": ["restaurantes trancoso", "onde comer trancoso", "gastronomia quadrado trancoso"],
       "target_date": "2026-04-29",
-      "slug": "refugio-urbano-desconectar-rio"
+      "slug": "melhores-restaurantes-trancoso"
+    },
+    {
+      "topic": "Como chegar a Trancoso: aeroporto, estradas e transfers",
+      "pillar": "Dicas práticas",
+      "target_keywords": ["como chegar trancoso", "aeroporto trancoso", "transfer porto seguro trancoso"],
+      "target_date": "2026-05-02",
+      "slug": "como-chegar-trancoso"
     }
   ]
 }

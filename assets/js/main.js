@@ -1,10 +1,11 @@
 /* ============================================================
-   POUSADA MONTVERDE — main.js v3
+   HOTEL BOUTIQUE BAHIA BONITA — main.js v3
    Komplexa Hotéis
    ============================================================ */
 
-const WEBHOOK_URL = 'https://webhook.cidigitalmarketing.com/webhook/7c87bd71-6c33-437f-9073-2fae80d76d2f';
-const HOTEL_NAME  = 'Pousada MontVerde';
+const WEBHOOK_URL = '';  // TODO: definir endpoint webhook Bahia Bonita
+const HOTEL_NAME  = 'Hotel Boutique Bahia Bonita';
+const WA_NUMBER   = '5573988017764';
 
 // ── dataLayer GTM ──
 window.dataLayer = window.dataLayer || [];
@@ -48,6 +49,16 @@ const mob = document.getElementById('mobnav');
 function openMob()  { mob?.classList.add('open'); ham?.classList.add('open'); document.body.style.overflow='hidden'; ham?.setAttribute('aria-expanded','true'); }
 function closeMob() { mob?.classList.remove('open'); ham?.classList.remove('open'); document.body.style.overflow=''; ham?.setAttribute('aria-expanded','false'); }
 ham?.addEventListener('click', () => mob?.classList.contains('open') ? closeMob() : openMob());
+
+// ── MOBILE DROPDOWN SUBMENUS ──
+document.querySelectorAll('.mob-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', e => {
+    e.preventDefault();
+    toggle.classList.toggle('open');
+    const sub = toggle.nextElementSibling;
+    if (sub) sub.classList.toggle('open');
+  });
+});
 
 // ── LAZY LOAD ──
 const imgObs = new IntersectionObserver((entries) => {
@@ -125,6 +136,6 @@ async function submitContact(e) {
 const tituloOriginal = document.title;
 document.addEventListener('visibilitychange', () => {
   document.title = document.hidden
-    ? '👋 Volte Aqui — Estamos te esperando!'
+    ? '👋 Volte — Bahia Bonita te espera!'
     : tituloOriginal;
 });

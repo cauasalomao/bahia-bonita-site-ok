@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pousadamontverde.com.br/sitemap.xml
+Sitemap: https://bahiabonita.com.br/sitemap.xml
