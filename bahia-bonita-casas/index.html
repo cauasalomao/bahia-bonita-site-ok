@@ -168,7 +168,7 @@
       </div>
 
       <div class="cc-thumbs" id="ccThumbs">
-        <div class="cc-thumb active" onclick="ccGoTo(0)"><img src="../assets/img/casas/casa-tupa/02.jpg" alt="Casa Tupã"></div>
+        <div class="cc-thumb active" onclick="ccGoTo(0)"><img src="../assets/img/casas/casa-tupa/01.jpg" alt="Casa Tupã"></div>
         <div class="cc-thumb" onclick="ccGoTo(1)"><img src="../assets/img/casas/casa-yara/01.jpg" alt="Casa Yara"></div>
         <div class="cc-thumb" onclick="ccGoTo(2)"><img src="../assets/img/casas/casa-mangara/01.jpg" alt="Casa Mangará"></div>
         <div class="cc-thumb" onclick="ccGoTo(3)"><img src="../assets/img/casas/casa-jaci/01.jpg" alt="Casa Jaci"></div>
@@ -191,7 +191,7 @@
       const c = ccCasas[ccIndex];
       document.getElementById('ccTitle').innerText = 'Conheça a ' + c.name;
       document.getElementById('ccDesc').innerText = c.desc;
-      document.getElementById('ccBtn').href = '/' + c.slug + '/';
+      document.getElementById('ccBtn').href = '../' + c.slug + '/';
       document.getElementById('ccCurrent').innerText = String(ccIndex+1).padStart(2,'0');
       document.getElementById('ccFeats').innerHTML = c.feats.map(f => '<span class="cc-feat">'+f+'</span>').join('');
       document.querySelectorAll('#ccThumbs .cc-thumb').forEach((t,i)=>{ t.classList.toggle('active', i===ccIndex); });

@@ -226,7 +226,7 @@
         <div class="cc-thumb" onclick="ccGoTo(1)"><img src="../assets/img/suites/suite-luxo-superior/01.jpg" alt="Luxo Superior"></div>
         <div class="cc-thumb" onclick="ccGoTo(2)"><img src="../assets/img/suites/suite-master/01.jpg" alt="Master"></div>
         <div class="cc-thumb" onclick="ccGoTo(3)"><img src="../assets/img/suites/suite-diamante/01.jpg" alt="Diamante"></div>
-        <div class="cc-thumb" onclick="ccGoTo(4)"><img src="../assets/img/suites/suite-duplex-hidro/05.jpg" alt="Duplex"></div>
+        <div class="cc-thumb" onclick="ccGoTo(4)"><img src="../assets/img/suites/suite-duplex-hidro/01.jpg" alt="Duplex"></div>
         <div class="cc-thumb" onclick="ccGoTo(5)"><img src="../assets/img/suites/suite-master-piscina/01.jpg" alt="Master Piscina"></div>
         <div class="cc-thumb" onclick="ccGoTo(6)"><img src="../assets/img/suites/bangalo-master/01.jpg" alt="Bangalô"></div>
       </div>
@@ -249,7 +249,7 @@
       const c = ccCasas[ccIndex];
       document.getElementById('ccTitle').innerText = 'Conheça a ' + c.name;
       document.getElementById('ccDesc').innerText = c.desc;
-      document.getElementById('ccBtn').href = '/' + c.slug + '/';
+      document.getElementById('ccBtn').href = '../' + c.slug + '/';
       document.getElementById('ccCurrent').innerText = String(ccIndex+1).padStart(2,'0');
       document.getElementById('ccFeats').innerHTML = c.feats.map(f => '<span class="cc-feat">'+f+'</span>').join('');
       document.querySelectorAll('#ccThumbs .cc-thumb').forEach((t,i)=>{ t.classList.toggle('active', i===ccIndex); });
