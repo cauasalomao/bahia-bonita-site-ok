@@ -218,9 +218,21 @@ img.loaded { opacity:1; }
 .cc-slide { display:none; }
 .cc-slide.active { display:contents; }
 
+/* ── LARGE CAROUSEL VARIANT (listing pages) ── */
+.cc-large .casas-carousel-inner { height:620px; }
+.cc-large .cc-card { height:620px; }
+.cc-large .cc-main-img { height:620px; }
+.cc-large .cc-thumbs { height:620px; }
+.cc-large .cc-thumb.active { width:620px; min-width:620px; max-width:620px; }
+
 @media(max-width:1024px){
   .casas-carousel-inner { grid-template-columns:1fr; gap:1.5rem; }
   .cc-thumbs { flex-direction:row; height:80px; }
+  .cc-large .casas-carousel-inner { height:auto; }
+  .cc-large .cc-card { height:auto; }
+  .cc-large .cc-main-img { height:auto; }
+  .cc-large .cc-thumbs { height:80px; }
+  .cc-large .cc-thumb.active { width:auto; min-width:auto; max-width:none; }
 }
 
 /* ── COMPACT SECTIONS (25% less padding) ── */
