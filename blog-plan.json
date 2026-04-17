@@ -1,7 +1,7 @@
 {
   "editorial_strategy": {
     "goal": "Atrair tráfego orgânico qualificado para Trancoso e sul da Bahia via conteúdo inspiracional e informativo, gerando reservas no Hotel Boutique Bahia Bonita",
-    "tone": "Sofisticado e acolhedor, inspiracional com CTAs sutis para reserva. Escrita em português brasileiro, elegante sem ser formal demais.",
+    "tone": "Sofisticado e acolhedor, inspiracional com CTAs sutis para reserva. Escrita em português brasileiro, elegante sem ser formal demais. Natureza como protagonista, exclusivo sem ser esnobe.",
     "word_count": "800-1200",
     "target_keywords_per_post": 3,
     "internal_links_per_post": 2,
@@ -31,6 +31,42 @@
     ]
   },
 
+  "visual_identity": {
+    "must_match_site_style": true,
+    "description": "Posts do blog devem seguir EXATAMENTE a identidade visual do site. O template em blog/_template/index.html já contém o layout correto — nunca alterar header, footer, fonts, CTA final ou estrutura de página. O agente só substitui os marcadores %%PLACEHOLDER%% e insere o conteúdo entre %%CONTENT_START%% e %%CONTENT_END%%.",
+    "required_elements": {
+      "favicon": "<link rel=\"icon\" type=\"image/svg+xml\" href=\"../../assets/img/logo.svg\">",
+      "fonts": "Fraunces (display, weight 300) + Nunito Sans (body) — carregar via Google Fonts URL em hotel-config.json design.google_fonts_url",
+      "header": "hdr hero-mode com logo branca (logo-branco.svg), nav completa (Início, Bahia Bonita Casas ▾, Hotel Boutique ▾, Experiências, Galeria, Blog [active], Contato) e botão pill 'Reservar agora'",
+      "page_top_hero": "Faixa fina 88px com imagem (hero-01.jpg por padrão) + overlay escuro — obrigatória em todo post",
+      "h1_style": "font-family Fraunces, font-weight 300, clamp(1.8rem, 4vw, 2.8rem)",
+      "h2_style": "font-family Fraunces, font-weight 300 (seções do post)",
+      "body_text": "font-family Nunito Sans weight 300-400, line-height 1.7-1.85",
+      "cta_box": ".blog-cta-box com heading Fraunces + botão .btn-green (pill border-radius 50px)",
+      "final_cta": ".final-cta com imagem villa-ruda.jpg, overlay, logo branca, heading 'Trancoso está esperando por você. Reserve sua experiência.' e botão .final-cta-btn",
+      "footer": ".ft-logo-center centralizado + .ft-grid com 3 colunas (Sobre / Contato / Legal)",
+      "whatsapp_floating": ".wa-btn fixo no canto — copiar bloco do template",
+      "cookie_banner": ".ck com botões .btn-green (Aceitar) e .btn-outline (Recusar)"
+    },
+    "colors": {
+      "accent": "#6CC2C4",
+      "cta_gold": "#C99F75",
+      "bg": "#FFF8F2",
+      "surface_light": "#FFF0E2 (seção 'Outros posts')",
+      "text": "#29393A",
+      "text_muted": "#6B7A7B"
+    },
+    "writing_style_rules": [
+      "Nunca usar texto em caixa alta além dos elementos .overline e badges",
+      "Headings H2 em frases curtas, sem ponto final, sem emojis",
+      "Parágrafos com 3-5 linhas, respiro visual",
+      "Links internos naturais no texto, nunca 'clique aqui' — usar frase descritiva",
+      "Tom inspiracional mas não exagerado — 'o ritmo é seu' > 'experiência incrível'",
+      "Sempre mencionar Trancoso e pelo menos uma das keywords-alvo na intro",
+      "CTA box sempre antes do fechamento, estrutura: heading curto + descrição + botão pill"
+    ]
+  },
+
   "seo_rules": {
     "title_format": "{Título do Post} | Blog Hotel Boutique Bahia Bonita",
     "meta_description_max_chars": 155,
@@ -47,10 +83,11 @@
 
   "post_template": {
     "filename_pattern": "blog/{slug}/index.html",
+    "source_template": "blog/_template/index.html",
     "required_sections": [
       "Introdução (2-3 parágrafos, inclui keyword principal)",
       "Corpo (3-5 seções com H2, conteúdo útil e original)",
-      "CTA final (link para reserva ou contato)",
+      "CTA final (link para reserva ou contato) dentro de .blog-cta-box",
       "Links internos naturais no texto"
     ],
     "footer_cta": "Reserve sua experiência exclusiva no Hotel Boutique Bahia Bonita — a 100 metros do Quadrado e passos da praia em Trancoso."
