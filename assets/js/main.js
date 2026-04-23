@@ -118,6 +118,39 @@ document.addEventListener('keydown', e => {
   if(e.key==='Escape') closeLB(); if(e.key==='ArrowLeft') navLB(-1); if(e.key==='ArrowRight') navLB(1);
 });
 
+// ── GALERIA DA PROPRIEDADE (popup por casa/suíte) ──
+function ensureLB() {
+  if (document.getElementById('lb')) return;
+  const lb = document.createElement('div');
+  lb.className = 'lb';
+  lb.id = 'lb';
+  lb.innerHTML =
+    '<button class="lb-close" onclick="closeLB()">&#215;</button>' +
+    '<button class="lb-nav lb-prev" onclick="navLB(-1)">&#8249;</button>' +
+    '<img class="lb-img" id="lbImg" src="" alt="">' +
+    '<button class="lb-nav lb-next" onclick="navLB(1)">&#8250;</button>' +
+    '<div class="lb-cnt" id="lbCnt"></div>';
+  document.body.appendChild(lb);
+  lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
+}
+function openPropGallery(folder) {
+  ensureLB();
+  const seen = new Set();
+  const srcs = [];
+  document.querySelectorAll('img[src*="/assets/img/' + folder + '/"]').forEach(img => {
+    const s = img.getAttribute('src');
+    if (!seen.has(s)) { seen.add(s); srcs.push(s); }
+  });
+  srcs.sort((a, b) => {
+    const ma = a.match(/(\d+)\.jpg$/i), mb = b.match(/(\d+)\.jpg$/i);
+    return (ma ? parseInt(ma[1], 10) : 999) - (mb ? parseInt(mb[1], 10) : 999);
+  });
+  if (!srcs.length) return;
+  LB_SRCS.length = 0;
+  srcs.forEach(s => LB_SRCS.push(s));
+  openLB(0);
+}
+
 // ── FORMULÁRIO CONTATO ──
 async function submitContact(e) {
   e.preventDefault();
