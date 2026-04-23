@@ -1095,3 +1095,17 @@ footer { background:var(--text); color:rgba(255,255,255,.8); padding:clamp(4rem,
   .ab-img img { max-width:420px; margin:0 auto; }
   .ab-grid { gap:1.5rem; }
 }
+
+/* ── PROP VIDEO PLAY OVERLAY + MODAL ── */
+.prop-video { position:relative; cursor:pointer; }
+.prop-video-play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.25); transition:background .3s; }
+.prop-video:hover .prop-video-play { background:rgba(0,0,0,.15); }
+.prop-video-play-btn { width:64px; height:64px; border-radius:50%; background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center; transition:transform .3s; }
+.prop-video:hover .prop-video-play-btn { transform:scale(1.08); }
+.prop-video-play-btn svg { width:22px; height:22px; fill:var(--text); margin-left:3px; }
+.video-modal { position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,.95); display:none; align-items:center; justify-content:center; }
+.video-modal.open { display:flex; }
+.video-modal-close { position:absolute; top:1.2rem; right:1.5rem; background:none; border:none; color:#fff; font-size:2.2rem; cursor:pointer; z-index:2; opacity:.7; transition:opacity .2s; line-height:1; padding:.2rem .5rem; }
+.video-modal-close:hover { opacity:1; }
+.video-modal-content { width:90vw; max-width:1100px; }
+.video-modal-content iframe { width:100%; aspect-ratio:16/9; border:none; }

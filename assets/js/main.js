@@ -314,3 +314,31 @@ document.addEventListener('click', function(e) {
   e.preventDefault();
   openReservaModal();
 });
+
+// ── MODAL DE VÍDEO (YouTube) ──
+function ensureVideoModal() {
+  if (document.getElementById('videoModal')) return;
+  const wrap = document.createElement('div');
+  wrap.className = 'video-modal';
+  wrap.id = 'videoModal';
+  wrap.innerHTML =
+    '<button class="video-modal-close" aria-label="Fechar" onclick="closeVideo()">&times;</button>' +
+    '<div class="video-modal-content" id="videoContent"></div>';
+  document.body.appendChild(wrap);
+  wrap.addEventListener('click', e => { if (e.target === wrap) closeVideo(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && wrap.classList.contains('open')) closeVideo();
+  });
+}
+function openVideo(ytId) {
+  ensureVideoModal();
+  document.getElementById('videoContent').innerHTML =
+    '<iframe src="https://www.youtube.com/embed/' + ytId + '?autoplay=1" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
+  document.getElementById('videoModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeVideo() {
+  const m = document.getElementById('videoModal');
+  if (m) { m.classList.remove('open'); document.getElementById('videoContent').innerHTML = ''; }
+  document.body.style.overflow = '';
+}
