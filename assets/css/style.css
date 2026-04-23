@@ -1088,6 +1088,7 @@ footer { background:var(--text); color:rgba(255,255,255,.8); padding:clamp(4rem,
 /* Hero da home: reduz altura mínima em mobile para não obrigar scroll excessivo antes da segunda dobra */
 @media(max-width:768px){
   .hero { min-height:72vh; }
+  .hero-title { font-size:clamp(1.5rem,6vw,2rem); }
 }
 /* ab-grid no mobile: evita imagem gigante esticada */
 @media(max-width:768px){
