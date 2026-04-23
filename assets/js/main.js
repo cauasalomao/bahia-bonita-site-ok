@@ -172,3 +172,145 @@ document.addEventListener('visibilitychange', () => {
     ? '👋 Volte — Bahia Bonita te espera!'
     : tituloOriginal;
 });
+
+// ── POPUP DE RESERVA (Omnibees) ──
+const OMNIBEES_CHAIN = '3604';
+const OMNIBEES_HOTEL = '6588';
+
+function ensureReservaModal() {
+  if (document.getElementById('rvModal')) return;
+  const wrap = document.createElement('div');
+  wrap.className = 'rv-modal';
+  wrap.id = 'rvModal';
+  wrap.innerHTML =
+    '<div class="rv-card" role="dialog" aria-modal="true" aria-labelledby="rv-title">' +
+      '<button type="button" class="rv-close" aria-label="Fechar" onclick="closeReservaModal()">&times;</button>' +
+      '<div class="rv-head">' +
+        '<p class="overline">Reserva</p>' +
+        '<h3 id="rv-title">Pesquisar disponibilidade</h3>' +
+        '<div class="divider cx"></div>' +
+      '</div>' +
+      '<div class="rv-body">' +
+        '<div class="rv-dates">' +
+          '<label class="rv-field"><span>Check-in</span><input type="date" id="rv_in"></label>' +
+          '<label class="rv-field"><span>Check-out</span><input type="date" id="rv_out"></label>' +
+        '</div>' +
+        '<div class="rv-count">' +
+          '<div class="rv-count-lbl"><div class="rv-count-t">Adultos</div><div class="rv-count-s">Acima de 12 anos</div></div>' +
+          '<div class="rv-count-btns">' +
+            '<button type="button" onclick="rvStep(\'ad\',-1)" aria-label="Menos adultos">&minus;</button>' +
+            '<span id="rv_ad">2</span>' +
+            '<button type="button" onclick="rvStep(\'ad\',1)" aria-label="Mais adultos">+</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="rv-count">' +
+          '<div class="rv-count-lbl"><div class="rv-count-t">Crianças</div><div class="rv-count-s">0 a 12 anos</div></div>' +
+          '<div class="rv-count-btns">' +
+            '<button type="button" onclick="rvStep(\'ch\',-1)" aria-label="Menos crianças">&minus;</button>' +
+            '<span id="rv_ch">0</span>' +
+            '<button type="button" onclick="rvStep(\'ch\',1)" aria-label="Mais crianças">+</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="rv-ages" id="rv_ages"></div>' +
+        '<button type="button" class="rv-submit" onclick="rvSubmit()">Pesquisar disponibilidade</button>' +
+        '<p class="rv-err" id="rv_err"></p>' +
+      '</div>' +
+    '</div>';
+  document.body.appendChild(wrap);
+  wrap.addEventListener('click', e => { if (e.target === wrap) closeReservaModal(); });
+  const today = new Date().toISOString().split('T')[0];
+  const inEl = wrap.querySelector('#rv_in');
+  const outEl = wrap.querySelector('#rv_out');
+  inEl.min = today;
+  outEl.min = today;
+  inEl.addEventListener('change', () => {
+    outEl.min = inEl.value || today;
+    if (outEl.value && outEl.value <= inEl.value) outEl.value = '';
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && wrap.classList.contains('open')) closeReservaModal();
+  });
+}
+function openReservaModal() {
+  ensureReservaModal();
+  document.getElementById('rvModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeReservaModal() {
+  document.getElementById('rvModal')?.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function rvStep(key, delta) {
+  const el = document.getElementById(key === 'ad' ? 'rv_ad' : 'rv_ch');
+  let v = parseInt(el.textContent, 10) + delta;
+  if (key === 'ad') { v = Math.max(1, Math.min(10, v)); }
+  else { v = Math.max(0, Math.min(6, v)); rvRenderAges(v); }
+  el.textContent = v;
+}
+function rvRenderAges(n) {
+  const box = document.getElementById('rv_ages');
+  const prev = [];
+  box.querySelectorAll('select').forEach(s => prev.push(s.value));
+  box.innerHTML = '';
+  for (let i = 0; i < n; i++) {
+    const label = document.createElement('label');
+    label.className = 'rv-age-field';
+    const span = document.createElement('span');
+    span.textContent = 'Idade criança ' + (i + 1);
+    const sel = document.createElement('select');
+    for (let a = 0; a <= 12; a++) {
+      const opt = document.createElement('option');
+      opt.value = a;
+      opt.textContent = a + (a === 1 ? ' ano' : ' anos');
+      sel.appendChild(opt);
+    }
+    sel.value = prev[i] != null ? prev[i] : '3';
+    label.appendChild(span);
+    label.appendChild(sel);
+    box.appendChild(label);
+  }
+}
+function rvFmtDate(iso) {
+  const p = iso.split('-');
+  return p[2] + p[1] + p[0];
+}
+function rvSubmit() {
+  const err = document.getElementById('rv_err');
+  const inEl = document.getElementById('rv_in');
+  const outEl = document.getElementById('rv_out');
+  err.textContent = '';
+  if (!inEl.value || !outEl.value) { err.textContent = 'Selecione as datas de check-in e check-out.'; return; }
+  if (outEl.value <= inEl.value) { err.textContent = 'O check-out deve ser posterior ao check-in.'; return; }
+  const ad = document.getElementById('rv_ad').textContent;
+  const ch = document.getElementById('rv_ch').textContent;
+  const ages = Array.from(document.querySelectorAll('#rv_ages select')).map(s => s.value).join(',');
+  const url = 'https://book.omnibees.com/hotelresults' +
+    '?c=' + OMNIBEES_CHAIN +
+    '&q=' + OMNIBEES_HOTEL +
+    '&hotel_folder=' +
+    '&NRooms=1' +
+    '&CheckIn=' + rvFmtDate(inEl.value) +
+    '&CheckOut=' + rvFmtDate(outEl.value) +
+    '&ad=' + ad +
+    '&ch=' + ch +
+    '&ag=' + ages +
+    '&Code=' +
+    '&group_code=' +
+    '&loyalty_code=' +
+    '&lang=pt-BR' +
+    '&currencyId=16' +
+    '&version=4';
+  pushLead('motor_reservas');
+  window.open(url, '_blank', 'noopener');
+}
+
+// Intercepta qualquer CTA "Reservar" e abre o popup (href wa.me continua como fallback)
+document.addEventListener('click', function(e) {
+  const el = e.target.closest('a, button');
+  if (!el) return;
+  const txt = (el.textContent || '').trim().toLowerCase();
+  if (txt !== 'reservar agora' && txt !== 'reservar estadia') return;
+  if (el.closest('.wa-btn') || el.closest('.ft-social')) return;
+  e.preventDefault();
+  openReservaModal();
+});
