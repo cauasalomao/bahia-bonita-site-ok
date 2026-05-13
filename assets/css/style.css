@@ -259,12 +259,14 @@ section.compact { padding:clamp(2.5rem,5vw,4.2rem) 0; }
 section.compact.no-top { padding-top:0; }
 
 /* ── CASAS BLOCK ── */
-/* Espelho de .ab-grid.flip — mesma anatomia 457/591/324 do Elementor original */
-.casas-block { display:grid; grid-template-columns:minmax(0,457fr) minmax(0,591fr) minmax(0,324fr); align-items:center; max-width:1372px; margin:0 auto; gap:0; min-height:480px; }
-.casas-txt { grid-column:2; display:flex; flex-direction:column; justify-content:center; gap:1rem; padding-right:clamp(1.5rem,17vw,247px); text-align:left; }
+/* Espelho exato do .ab-grid.flip — cols 324/591/457 com texto na col 2 e imagem na col 3 */
+.casas-block { display:grid; grid-template-columns:minmax(0,324fr) minmax(0,591fr) minmax(0,457fr); align-items:center; max-width:1372px; margin:0 auto; gap:0; min-height:480px; }
+.casas-txt { grid-column:2; display:flex; flex-direction:column; justify-content:center; gap:1rem; padding-left:0; padding-right:clamp(1.5rem,17vw,247px); text-align:left; }
 .casas-txt > * { max-width:344px; }
 .casas-img { grid-column:3; width:100%; aspect-ratio:2/3; overflow:hidden; }
 .casas-img img { width:100%; height:100%; object-fit:cover; display:block; }
+/* Quando .ab-txt e .casas-txt aparecem juntos, casas-txt deve mandar (especificidade 2 > 1) */
+.ab-txt.casas-txt { padding-left:0; padding-right:clamp(1.5rem,17vw,247px); }
 @media(max-width:768px){
   .casas-block { grid-template-columns:1fr; min-height:auto; gap:2rem; }
   .casas-txt, .casas-img { grid-column:auto; }
@@ -482,18 +484,20 @@ section.compact.no-top { padding-top:0; }
 .strip-i p { color:rgba(255,255,255,.72); font-size:.8rem; max-width:100%; line-height:1.65; }
 
 /* ── SOBRE PREVIEW ── */
-/* Layout fiel ao Elementor original — 3 colunas 457/591/324, mesma imagem 2/3 em ambos os lados.
-   O efeito de "texto centralizado" vem do spacer + padding lateral grande na coluna do texto,
-   NÃO de text-align:center. Flip troca apenas a direção do flex e o lado do padding. */
-.ab-grid { display:grid; grid-template-columns:minmax(0,457fr) minmax(0,591fr) minmax(0,324fr); align-items:center; max-width:1372px; margin:0 auto; gap:0; }
-.ab-img { overflow:hidden; width:100%; aspect-ratio:2/3; grid-column:1; }
+/* Layout fiel ao Elementor original — 3 colunas onde imagem é sempre 457w e spacer 324w,
+   trocando de LADO entre default e flip (não só a coluna). Texto sempre na col 2 com
+   padding lateral grande no lado oposto à imagem. */
+.ab-grid { display:grid; align-items:center; max-width:1372px; margin:0 auto; gap:0; grid-template-columns:minmax(0,457fr) minmax(0,591fr) minmax(0,324fr); }
+.ab-grid.flip { grid-template-columns:minmax(0,324fr) minmax(0,591fr) minmax(0,457fr); }
+.ab-img { overflow:hidden; width:100%; aspect-ratio:2/3; }
 .ab-img img { width:100%; height:100%; object-fit:cover; display:block; }
-.ab-txt { grid-column:2; display:flex; flex-direction:column; justify-content:center; gap:1rem; padding-left:clamp(1.5rem,17vw,247px); }
+.ab-txt { grid-column:2; display:flex; flex-direction:column; justify-content:center; gap:1rem; }
 .ab-txt > * { max-width:344px; }
 .ab-txt h2 { margin:0; font-size:clamp(1.5rem,2vw,1.9rem); line-height:1.25; }
-/* Flip: imagem migra pra col 3, spacer fica na col 1, e o padding do texto vira pro lado direito */
-.ab-grid.flip .ab-img { grid-column:3; aspect-ratio:2/3; }
-.ab-grid.flip .ab-txt { grid-column:2; padding-left:0; padding-right:clamp(1.5rem,17vw,247px); }
+.ab-grid:not(.flip) .ab-img { grid-column:1; }
+.ab-grid:not(.flip) .ab-txt { padding-left:clamp(1.5rem,17vw,247px); padding-right:0; }
+.ab-grid.flip .ab-img { grid-column:3; }
+.ab-grid.flip .ab-txt { padding-left:0; padding-right:clamp(1.5rem,17vw,247px); }
 .badges { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.4rem; }
 .badge { display:inline-block; padding:.3rem .85rem; border:1px solid var(--border); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); font-weight:700; }
 
