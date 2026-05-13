@@ -373,8 +373,17 @@ section.compact.no-top { padding-top:0; }
 @media(max-width:1024px){
   .hero-btn-mobile { display:inline-block; margin-top:1.8rem; padding:.95rem 2.6rem; background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.85); border-radius:50px; font-family:var(--font-body); font-size:.95rem; font-weight:500; letter-spacing:.04em; transition:all .3s; }
   .hero-btn-mobile:hover { background:rgba(255,255,255,.12); }
-  /* Overlap da intro-section sobre o hero (fiel ao Elementor original mobile) */
-  .intro-section { margin-top:-3rem; border-radius:24px 24px 0 0; padding-top:clamp(3rem,8vw,5rem); }
+  /* Efeito sticky-stack mobile: hero fica no fundo enquanto o conteúdo sobe por cima */
+  .hero { position:sticky; top:0; z-index:1; }
+  /* Todas as seções subsequentes sobem por cima do hero */
+  body > section:not(.hero) { position:relative; z-index:2; }
+  /* Intro section: cantos arredondados + overlap consistente */
+  .intro-section {
+    margin-top:-3rem;
+    border-radius:28px 28px 0 0;
+    padding-top:clamp(3.5rem,9vw,5.5rem);
+    box-shadow:0 -12px 32px rgba(0,0,0,.15);
+  }
 }
 .intro-logo-row { display:flex; align-items:center; justify-content:center; gap:0; margin-bottom:clamp(1.2rem,2.5vw,2rem); padding:0 clamp(2rem,6vw,6rem); }
 .intro-line { flex:1; height:1px; background:var(--accent); opacity:.4; }
