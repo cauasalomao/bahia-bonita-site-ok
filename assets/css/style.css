@@ -487,7 +487,7 @@ section.compact.no-top { padding-top:0; }
 /* Layout fiel ao Elementor original — 3 colunas onde imagem é sempre 457w e spacer 324w,
    trocando de LADO entre default e flip (não só a coluna). Texto sempre na col 2 com
    padding lateral grande no lado oposto à imagem. */
-.ab-grid { display:grid; align-items:center; max-width:1372px; margin:0 auto; gap:0; grid-template-columns:minmax(0,457fr) minmax(0,591fr) minmax(0,324fr); }
+.ab-grid { display:grid; grid-auto-flow:dense; align-items:center; max-width:1372px; margin:0 auto; gap:0; grid-template-columns:minmax(0,457fr) minmax(0,591fr) minmax(0,324fr); }
 .ab-grid.flip { grid-template-columns:minmax(0,324fr) minmax(0,591fr) minmax(0,457fr); }
 .ab-img { overflow:hidden; width:100%; aspect-ratio:2/3; }
 .ab-img img { width:100%; height:100%; object-fit:cover; display:block; }
