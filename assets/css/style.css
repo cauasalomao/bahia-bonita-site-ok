@@ -384,6 +384,11 @@ section.compact.no-top { padding-top:0; }
     padding-top:clamp(3.5rem,9vw,5.5rem);
     box-shadow:0 -12px 32px rgba(0,0,0,.15);
   }
+  /* Botões da intro empilham verticais e largos como no oficial mobile */
+  .intro-btns { flex-direction:column; align-items:stretch; max-width:360px; margin-left:auto; margin-right:auto; gap:.9rem; padding:0 1rem; }
+  .intro-btn { width:100%; padding:1.05rem 2rem; font-size:.92rem; box-sizing:border-box; }
+  /* Header mobile: sempre sólido dourado (sem hero-mode transparente, já que o hero é sticky atrás) */
+  .hdr.hero-mode { background:var(--cta) !important; }
 }
 .intro-logo-row { display:flex; align-items:center; justify-content:center; gap:0; margin-bottom:clamp(1.2rem,2.5vw,2rem); padding:0 clamp(2rem,6vw,6rem); }
 .intro-line { flex:1; height:1px; background:var(--accent); opacity:.4; }
