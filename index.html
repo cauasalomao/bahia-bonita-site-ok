@@ -367,7 +367,7 @@
     document.addEventListener('DOMContentLoaded',()=>{
       document.querySelectorAll('.cc-feat').forEach(el=>{
         const txt=el.textContent.trim();
-        if(!el.querySelector('svg')) el.innerHTML=featIcon(txt)+txt;
+        if(!el.querySelector('svg')) el.innerHTML=featIcon(txt)+'<span class="cc-feat-label">'+txt+'</span>';
       });
     });
 
@@ -386,7 +386,7 @@
       document.getElementById('ccDesc').innerText = c.desc;
       document.getElementById('ccBtn').href = c.slug + '/';
       document.getElementById('ccCurrent').innerText = String(ccIndex+1).padStart(2,'0');
-      document.getElementById('ccFeats').innerHTML = c.feats.map(f => '<span class="cc-feat">'+featIcon(f)+f+'</span>').join('');
+      document.getElementById('ccFeats').innerHTML = c.feats.map(f => '<span class="cc-feat">'+featIcon(f)+'<span class="cc-feat-label">'+f+'</span></span>').join('');
       document.querySelectorAll('#ccThumbs .cc-thumb').forEach((t,i)=>{ t.classList.toggle('active', i===ccIndex); });
     }
     function ccNext() { ccIndex = (ccIndex + 1) % ccCasas.length; ccRender(); ccResetTimer(); }
@@ -489,7 +489,7 @@
       document.getElementById('scMainImg').src = s.img;
       document.getElementById('scMainImg').alt = s.name;
       document.getElementById('scCurrent').innerText = String(scIndex+1).padStart(2,'0');
-      document.getElementById('scFeats').innerHTML = s.feats.map(f => '<span class="cc-feat">'+featIcon(f)+f+'</span>').join('');
+      document.getElementById('scFeats').innerHTML = s.feats.map(f => '<span class="cc-feat">'+featIcon(f)+'<span class="cc-feat-label">'+f+'</span></span>').join('');
       document.querySelectorAll('#scThumbs .cc-thumb').forEach((t,i)=>{ t.classList.toggle('active', i===scIndex); });
     }
     function scNext() { scIndex = (scIndex + 1) % scSuites.length; scRender(); scResetTimer(); }
