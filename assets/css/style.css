@@ -494,6 +494,7 @@ section.compact.no-top { padding-top:0; }
 .ab-txt { grid-column:2; display:flex; flex-direction:column; justify-content:center; gap:1rem; }
 .ab-txt > * { max-width:344px; }
 .ab-txt h2 { margin:0; font-size:clamp(1.5rem,2vw,1.9rem); line-height:1.25; }
+.ab-txt p, .casas-txt p { font-size:clamp(1rem,1.15vw,1.125rem); line-height:1.7; }
 .ab-grid:not(.flip) .ab-img { grid-column:1; }
 .ab-grid:not(.flip) .ab-txt { padding-left:clamp(1.5rem,17vw,247px); padding-right:0; }
 .ab-grid.flip .ab-img { grid-column:3; }
