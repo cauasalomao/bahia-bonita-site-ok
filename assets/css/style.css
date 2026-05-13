@@ -367,33 +367,18 @@ section.compact.no-top { padding-top:0; }
 .page-top-hero-ov { position:absolute; inset:0; background:rgba(20,25,15,.55); }
 
 /* ── INTRO SECTION (logo + dividers + CTA) ── */
-.intro-section { background:#fff; padding:clamp(5rem,9vw,8rem) 0; text-align:center; position:relative; z-index:2; }
+.intro-section { background:#fff; padding:clamp(5rem,9vw,8rem) 0; text-align:center; }
 /* Botão mobile-only no hero (substitui o widget OceanBook escondido em ≤1024) */
 .hero-btn-mobile { display:none; }
 @media(max-width:1024px){
   .hero-btn-mobile { display:inline-block; margin-top:1.8rem; padding:.95rem 2.6rem; background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.85); border-radius:50px; font-family:var(--font-body); font-size:.95rem; font-weight:500; letter-spacing:.04em; transition:all .3s; }
   .hero-btn-mobile:hover { background:rgba(255,255,255,.12); }
-  /* Efeito sticky-stack mobile: hero fica no fundo enquanto o conteúdo sobe por cima */
-  .hero { position:sticky; top:0; z-index:1; }
-  /* Todas as seções subsequentes sobem por cima do hero */
-  body > section:not(.hero) { position:relative; z-index:2; }
-  /* Intro section: cantos arredondados + overlap consistente */
-  .intro-section {
-    margin-top:-3rem;
-    border-radius:28px 28px 0 0;
-    padding-top:clamp(3.5rem,9vw,5.5rem);
-    box-shadow:0 -12px 32px rgba(0,0,0,.15);
-  }
-  /* Botões da intro empilham verticais e largos como no oficial mobile */
+  /* Botões da intro empilham verticais e largos no mobile */
   .intro-btns { flex-direction:column; align-items:stretch; max-width:420px; margin-left:auto; margin-right:auto; gap:.8rem; padding:0 1.25rem; }
   .intro-btn { width:100%; padding:1.15rem 2rem; font-size:.95rem; font-weight:500; box-sizing:border-box; letter-spacing:.02em; }
-  .intro-btn.teal { box-shadow:inset 0 0 0 1px rgba(255,255,255,.25); }
-  .intro-btn.gold { box-shadow:inset 0 0 0 1px rgba(255,255,255,.25); }
-  /* Header mobile: sempre sólido dourado (sem hero-mode transparente, já que o hero é sticky atrás) */
-  .hdr.hero-mode { background:var(--cta) !important; }
-  /* CRÍTICO: força collapse do ab-grid (default e flip) e casas-block para 1 coluna
-     em tablet/mobile. !important para vencer as regras desktop com .ab-grid.flip
-     que têm especificidade (0,3,0) vs reset mobile (0,2,0). */
+  /* Collapse do ab-grid (default e flip) e casas-block para 1 coluna em tablet/mobile.
+     !important porque desktop tem .ab-grid.flip .ab-img especificidade (0,3,0) e o
+     reset mobile teria que ser pelo menos (0,3,0) também — !important é mais legível. */
   .ab-grid, .ab-grid.flip,
   .casas-block { grid-template-columns:1fr !important; gap:1.5rem !important; max-width:560px !important; padding:0 1.25rem !important; box-sizing:border-box; }
   .ab-grid .ab-img, .ab-grid .ab-txt,
