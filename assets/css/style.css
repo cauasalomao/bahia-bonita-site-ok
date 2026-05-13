@@ -391,6 +391,15 @@ section.compact.no-top { padding-top:0; }
   .intro-btn.gold { box-shadow:inset 0 0 0 1px rgba(255,255,255,.25); }
   /* Header mobile: sempre sólido dourado (sem hero-mode transparente, já que o hero é sticky atrás) */
   .hdr.hero-mode { background:var(--cta) !important; }
+  /* CRÍTICO: força collapse do ab-grid (default e flip) e casas-block para 1 coluna
+     em tablet/mobile. !important para vencer as regras desktop com .ab-grid.flip
+     que têm especificidade (0,3,0) vs reset mobile (0,2,0). */
+  .ab-grid, .ab-grid.flip,
+  .casas-block { grid-template-columns:1fr !important; gap:1.5rem !important; max-width:560px !important; padding:0 1.25rem !important; box-sizing:border-box; }
+  .ab-grid .ab-img, .ab-grid .ab-txt,
+  .casas-block .casas-img, .casas-block .casas-txt { grid-column:auto !important; padding-left:0 !important; padding-right:0 !important; max-width:none !important; }
+  .ab-img, .casas-img { aspect-ratio:4/3 !important; }
+  .ab-txt > *, .casas-txt > * { max-width:none !important; }
 }
 .intro-logo-row { display:flex; align-items:center; justify-content:center; gap:0; margin-bottom:clamp(1.2rem,2.5vw,2rem); padding:0 clamp(2rem,6vw,6rem); }
 .intro-line { flex:1; height:1px; background:var(--accent); opacity:.4; }
@@ -706,9 +715,8 @@ footer { background:var(--text); color:rgba(255,255,255,.8); padding:clamp(4rem,
   .nav { display:none; }
   .ham { display:flex; }
   .hdr-btn { display:none; }
-  .ab-grid,.ab-grid.flip,.ct-grid,.loc-grid,.sobre-hero-txt { grid-template-columns:1fr; }
-  .ab-grid .ab-img, .ab-grid .ab-txt { grid-column:auto; }
-  .ab-grid .ab-txt, .ab-grid.flip .ab-txt { padding-left:0; padding-right:0; }
+  /* mantido para outros grids; ab-grid foi movido para um bloco com !important abaixo */
+  .ct-grid,.loc-grid,.sobre-hero-txt { grid-template-columns:1fr; }
   .rp-g { grid-template-columns:1fr 1fr; }
   .rm-g { grid-template-columns:1fr; }
   .gal-g { grid-template-columns:repeat(2,1fr); }
