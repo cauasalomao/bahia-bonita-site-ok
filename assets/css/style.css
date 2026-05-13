@@ -735,11 +735,8 @@ footer { background:var(--text); color:rgba(255,255,255,.8); padding:clamp(4rem,
   .rp-g { grid-template-columns:1fr; }
   .strip-g { grid-template-columns:1fr; }
   .hero-ctas { flex-direction:column; align-items:center; }
-  .hero-title { font-size:clamp(3.5rem,15vw,6rem); }
-  .wa-btn { bottom:1.2rem; right:1.2rem; }
-  .hero-c h1 { font-size:clamp(2.5rem,14vw,4.5rem); }
+  .wa-btn { bottom:max(1.2rem, env(safe-area-inset-bottom)); right:1.2rem; }
   .strip-i { padding:.5rem; }
-  section { padding:clamp(3rem,8vw,5rem) 0; }
   .ft-bottom { flex-direction:column; text-align:center; gap:.5rem; }
   .rc-b { padding:1rem 1.2rem; }
   .nearby-g { grid-template-columns:repeat(2,1fr)!important; }
@@ -1151,15 +1148,48 @@ footer { background:var(--text); color:rgba(255,255,255,.8); padding:clamp(4rem,
   .prop-hero { height:auto; min-height:78vh; padding:clamp(5rem,14vw,8rem) 0; }
   .prop-hero-c h1 { font-size:clamp(1.9rem,6vw,2.6rem); }
 }
-/* Hero da home: reduz altura mínima em mobile para não obrigar scroll excessivo antes da segunda dobra */
+/* ── REFINAMENTOS MOBILE GERAIS (parte 2) ── */
 @media(max-width:768px){
-  .hero { min-height:72vh; }
-  .hero-title { font-size:clamp(1.5rem,6vw,2rem); }
+  /* Hero principal: altura mais compacta e tipografia clara */
+  .hero { min-height:78vh; }
+  .hero-title { font-size:clamp(2rem,7vw,2.6rem); line-height:1.15; }
+  .hero-sub { font-size:.95rem; line-height:1.55; max-width:34ch; margin:0 auto; }
+  .hero-c { gap:1rem; padding:0 1.5rem; }
+  /* Reduz padding global de seções */
+  section { padding:clamp(2.5rem,8vw,4.5rem) 0; }
+  section.compact { padding:clamp(1.5rem,5vw,2.5rem) 0; }
+  /* Intro: logo+linhas com padding compacto */
+  .intro-logo-row { padding:0 1rem; margin-bottom:1.5rem; }
+  .intro-logo-row img { height:52px; margin:0 1rem; }
+  .intro-heading { font-size:clamp(1.6rem,6vw,2rem); }
+  /* Carousel cards: feats em 2 cols, texto que quebra linha em vez de truncar */
+  .cc-card-feats { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.6rem .8rem; }
+  .cc-feat { font-size:.78rem; white-space:normal; }
+  .cc-feat-label { overflow:visible; text-overflow:initial; }
+  /* Carousel suítes: cc-main-img tinha height:520px fixo, agora colapsa */
+  .cc-main-img { display:block; height:auto; aspect-ratio:4/3; }
+  /* Ordem dos elementos do carousel: card no topo, depois thumbs (active+dots) */
+  .cc-card { order:1; }
+  .cc-thumbs { order:2; }
+  /* Footer mais respiro */
+  .ft-logo-center img { height:46px; }
+  .ft-logo-center p { font-size:.78rem; }
+  /* WhatsApp flutuante acima do cookie banner */
+  .wa-btn { z-index:9100; bottom:max(1.5rem, env(safe-area-inset-bottom) + .5rem); }
+  /* Touch targets mínimos 44px para botões inline na intro/ab-txt */
+  .ab-txt .intro-btn, .ab-txt a.intro-btn { padding:.9rem 1.8rem !important; font-size:.85rem !important; min-height:44px; display:inline-flex; align-items:center; justify-content:center; }
+  /* Reviews badges menores no mobile */
+  .review-badge img { height:78px; }
+  .feat-cards { grid-template-columns:1fr; max-width:420px; }
 }
-/* ab-grid no mobile: evita imagem gigante esticada */
+/* Mantém imagens de ab-grid com proporção 4:3 mais cinematográfica no mobile (em vez do 2:3 vertical do desktop) */
 @media(max-width:768px){
-  .ab-img img { max-width:420px; margin:0 auto; }
+  .ab-img img { max-width:100%; margin:0 auto; }
   .ab-grid { gap:1.5rem; }
+}
+/* iPhone notch: WhatsApp flutuante */
+@supports(padding:max(0px)){
+  .wa-btn { padding-bottom:max(0px, env(safe-area-inset-bottom)); }
 }
 
 /* ── PROP VIDEO PLAY OVERLAY + MODAL ── */
